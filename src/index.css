@@ -1,0 +1,266 @@
+:root {
+  --gray: rgba(204, 204, 204, 0.6);
+}
+::-webkit-scrollbar {
+  width: 5px;
+  height: 8px;
+  background-color: transparent; /* or add it to the track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #aaa;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.App {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.main {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  padding: 50px;
+  color: white;
+  z-index: 1;
+  min-height: 400px;
+}
+
+.main-info {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 0 2rem;
+}
+
+.main-details {
+  display: flex;
+  align-items: flex-end;
+  gap: 2rem;
+}
+
+.logo {
+  font-weight: 700;
+}
+
+h1.tempreture {
+  font-size: clamp(2.5rem, 2.5rem + 7vw, 10rem);
+  font-weight: 400;
+  line-height: 1;
+}
+
+h2.location {
+  font-size: clamp(1rem, 1rem + 2vw, 3.5rem);
+  font-weight: 400;
+}
+
+.icons {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 10px;
+}
+
+.icons svg {
+  font-size: clamp(0.5rem, 0.5rem + 4vw, 3rem);
+}
+
+.icons + p {
+  text-align: center;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: 300ms ease;
+}
+
+li,
+p,
+input {
+  font-size: clamp(0.7rem, 0.7rem + 0.5vw, 1rem);
+}
+
+ul {
+  list-style: none;
+}
+
+li:not(:last-of-type) {
+  margin: 20px 0;
+}
+
+.info {
+  background-color: darkblue;
+  color: var(--gray);
+  padding: 0 0 0 25px;
+}
+
+.info div:not(.searchBar, li div) {
+  margin: 25px 25px 25px 0;
+  padding-bottom: 25px;
+  border-bottom: 2px solid var(--gray);
+}
+
+.info div:last-child {
+  margin-bottom: 0;
+}
+
+.info a:hover {
+  color: lightblue;
+}
+
+.info h4 {
+  font-size: 1rem;
+  font-weight: normal;
+  color: #fff;
+  margin-bottom: 25px;
+}
+
+.searchBar {
+  display: flex;
+  align-items: flex-end;
+  gap: 50px;
+  height: 70px;
+  position: relative;
+  z-index: 1;
+}
+
+.searchBar .results {
+  position: absolute;
+  top: 100%;
+  width: 70%;
+  border: 0;
+  margin: 0;
+}
+
+.results li {
+  display: flex;
+  align-items: center;
+  padding: 0 25px;
+  margin: 0;
+  height: 40px;
+  width: 100%;
+  background-color: #fff;
+  color: black;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+}
+.results li:hover {
+  background-color: #eee;
+}
+
+.searchBar button {
+  height: 70px;
+  width: 95px;
+  font-size: 1.2rem;
+  background-color: lightblue;
+  border: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+input {
+  width: 100%;
+  background-color: transparent;
+  border: 0;
+  border-bottom: 2px solid var(--gray);
+  color: lightblue;
+  padding: 10px 0;
+}
+
+input::placeholder {
+  color: var(--gray);
+}
+
+button:focus,
+input:focus {
+  outline: 0;
+}
+
+.menu-regions {
+  height: 25vh;
+  overflow-y: auto;
+}
+
+.menu-regions .hoverable {
+  transition: 300ms ease;
+  cursor: pointer;
+}
+
+.menu-regions .hoverable:hover {
+  color: lightblue;
+  transition: 300ms ease;
+}
+
+.details li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.details li div {
+  color: #fff;
+}
+
+@media screen and (min-width: 992px) {
+  .App {
+    flex-direction: row;
+  }
+
+  .main {
+    padding: 50px 100px;
+  }
+  .info {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1;
+    height: 100vh;
+    width: 40vw;
+    max-width: 500px;
+    padding: 0 0 0 50px;
+  }
+
+  .info div:not(.searchBar, li div,.results) {
+    margin: 50px 50px 50px 0;
+    padding-bottom: 50px;
+  }
+
+  .info h4 {
+    margin-bottom: 50px;
+  }
+
+  .searchBar button {
+    height: 100px;
+    width: 150px;
+    font-size: 2rem;
+    background-color: lightblue;
+    border: 0;
+  }
+
+  .searchBar {
+    height: 100px;
+  }
+}
