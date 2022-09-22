@@ -11,7 +11,7 @@ function SearchBar() {
   useEffect(() => {
     if (searchRegion) {
       fetch(
-        `http://api.weatherapi.com/v1/search.json?key=3f26bfeb5b2349c692874026222109&q=${searchRegion}`
+        `https://api.weatherapi.com/v1/search.json?key=3f26bfeb5b2349c692874026222109&q=${searchRegion}`
       )
         .then(function (response) {
           return response.json()
@@ -26,11 +26,14 @@ function SearchBar() {
     e.preventDefault()
 
     dispatch(getWeather(searchRegion))
+    setSearchRegion('')
   }
 
-    const searchResultClick = (region) => {
-      dispatch(getWeather(region))
-    }
+  const searchResultClick = (region) => {
+    dispatch(getWeather(region))
+    setSearchRegion(region)
+    setSearchResults([])
+  }
 
   return (
     <form onSubmit={onSubmit} className="searchBar">
